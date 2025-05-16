@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}Terms of Service - URL Shortener{% endblock %}
+
+{% block extra_css %}
+<style>
+    .terms-section {
+        background: white;
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+
+    .terms-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .terms-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .terms-section h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .terms-section h3 {
+        color: var(--secondary-color);
+        margin: 2rem 0 1rem;
+    }
+
+    .terms-section p {
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    .terms-section ul {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .terms-section li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+
+    .warning-box {
+        background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.1));
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+        border-left: 4px solid var(--accent-color);
+    }
+
+    .info-box {
+        background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(44, 62, 80, 0.1));
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+    }
+
+    .last-updated {
+        text-align: center;
+        color: var(--secondary-color);
+        font-style: italic;
+        margin-top: 3rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="terms-section animate-fadeInUp">
+        <div class="terms-header">
+            <h1>Terms of Service</h1>
+            <p class="lead">Please read these terms carefully before using our URL shortening service.</p>
+        </div>
+
+        <div class="terms-content">
+            <section class="animate-fadeInUp">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing and using our URL shortening service, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.</p>
+            </section>
+
+            <section class="animate-fadeInUp" style="animation-delay: 0.2s;">
+                <h2>2. Service Description</h2>
+                <p>Our service provides URL shortening capabilities with the following features:</p>
+                <ul>
+                    <li>URL shortening with optional custom aliases</li>
+                    <li>Basic analytics tracking</li>
+                    <li>Link management tools</li>
+                    <li>Security features</li>
+                </ul>
+            </section>
+
+            <div class="warning-box animate-fadeInUp" style="animation-delay: 0.3s;">
+                <h3>Prohibited Uses</h3>
+                <p>You agree not to use our service for:</p>
+                <ul>
+                    <li>Malicious or harmful purposes</li>
+                    <li>Spam or unauthorized advertising</li>
+                    <li>Distribution of malware or viruses</li>
+                    <li>Any illegal activities</li>
+                </ul>
+            </div>
+
+            <section class="animate-fadeInUp" style="animation-delay: 0.4s;">
+                <h2>3. User Responsibilities</h2>
+                <p>As a user of our service, you are responsible for:</p>
+                <ul>
+                    <li>Maintaining the security of your account</li>
+                    <li>Ensuring your content complies with our terms</li>
+                    <li>Notifying us of any security concerns</li>
+                    <li>Using the service in accordance with applicable laws</li>
+                </ul>
+            </section>
+
+            <section class="animate-fadeInUp" style="animation-delay: 0.5s;">
+                <h2>4. Service Limitations</h2>
+                <p>Our service is provided "as is" with the following limitations:</p>
+                <ul>
+                    <li>We do not guarantee 100% uptime</li>
+                    <li>Service may be modified or discontinued</li>
+                    <li>Features may change over time</li>
+                    <li>Usage may be subject to rate limits</li>
+                </ul>
+            </section>
+
+            <div class="info-box animate-fadeInUp" style="animation-delay: 0.6s;">
+                <h3>Data Retention</h3>
+                <p>We retain your data according to our data retention policy:</p>
+                <ul>
+                    <li>Shortened URLs are stored indefinitely</li>
+                    <li>Analytics data is retained for 12 months</li>
+                    <li>User data is kept until account deletion</li>
+                </ul>
+            </div>
+
+            <section class="animate-fadeInUp" style="animation-delay: 0.7s;">
+                <h2>5. Modifications to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Users will be notified of significant changes, and continued use of the service constitutes acceptance of modified terms.</p>
+            </section>
+
+            <section class="animate-fadeInUp" style="animation-delay: 0.8s;">
+                <h2>6. Contact Information</h2>
+                <p>For questions about these terms, please contact us at:</p>
+                <ul>
+                    <li>Email: support@urlshortener.com</li>
+                    <li>Address: 123 URL Street, Web City, 12345</li>
+                </ul>
+            </section>
+
+            <p class="last-updated">Last updated: March 15, 2024</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

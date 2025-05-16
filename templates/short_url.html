@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %}Shortened URL - URL Shortener{% endblock %}
+
+{% block extra_css %}
+<style>
+    .result-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-top: 2rem;
+    }
+
+    .url-display {
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+        word-break: break-all;
+        font-family: monospace;
+        font-size: 1.1rem;
+    }
+
+    .stats-card {
+        background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(44, 62, 80, 0.1));
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    .stat-label {
+        color: var(--secondary-color);
+        font-size: 0.9rem;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .btn-copy {
+        background: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-copy:hover {
+        background: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .btn-new {
+        background: white;
+        color: var(--secondary-color);
+        border: 2px solid var(--secondary-color);
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-new:hover {
+        background: var(--secondary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .qr-code-section {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin: 2rem 0;
+    }
+
+    .qr-code-container {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        display: inline-block;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .qr-code-img {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .btn-outline-primary {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-primary:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="result-card animate-fadeInUp">
+                <h2 class="text-center mb-4">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    URL Shortened Successfully!
+                </h2>
+                
+                <div class="url-display">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span id="shortUrl">{{ url.short_url }}</span>
+                        <button class="btn-copy" onclick="copyToClipboard('{{ url.short_url }}')">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                </div>
+
+                {% if url.qr_code %}
+                <div class="qr-code-section text-center mt-4">
+                    <h4 class="mb-3">Scan QR Code</h4>
+                    <div class="qr-code-container">
+                        <img src="{{ url_for('static', filename='qr_codes/' + url.qr_code) }}" 
+                             alt="QR Code for {{ url.short_url }}" 
+                             class="qr-code-img">
+                    </div>
+                    <a href="{{ url_for('static', filename='qr_codes/' + url.qr_code) }}" 
+                       download="qr_{{ url.short_url }}.png" 
+                       class="btn btn-outline-primary mt-3">
+                        <i class="fas fa-download me-2"></i>Download QR Code
+                    </a>
+                </div>
+                {% endif %}
+
+                <div class="stats-card">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stat-item">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Clicks</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-item">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Unique Visitors</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-item">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Countries</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="{{ url_for('index') }}" class="btn-new w-100">
+                        <i class="fas fa-plus-circle me-2"></i>Create Another Short URL
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            const btn = document.querySelector('.btn-copy');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            }, 2000);
+        });
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - URL Shortener{% endblock %}
+
+{% block extra_css %}
+<style>
+    .about-section {
+        background: white;
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+        transform: translateX(10px);
+        background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(44, 62, 80, 0.1));
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-right: 1rem;
+        width: 50px;
+        text-align: center;
+    }
+
+    .team-section {
+        margin-top: 3rem;
+    }
+
+    .team-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+    }
+
+    .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .team-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        object-fit: cover;
+    }
+
+    .social-links {
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        color: var(--secondary-color);
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: var(--primary-color);
+        transform: translateY(-3px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="about-section animate-fadeInUp">
+        <h1 class="text-center mb-4">About URL Shortener</h1>
+        <p class="lead text-center mb-5">
+            We're on a mission to make URL sharing simple, secure, and efficient.
+            Our platform helps you transform long URLs into short, manageable links instantly.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="mb-4">Our Features</h3>
+                <ul class="feature-list">
+                    <li class="feature-item animate-fadeInUp">
+                        <i class="fas fa-bolt feature-icon"></i>
+                        <div>
+                            <h4>Lightning Fast</h4>
+                            <p>Generate short URLs in milliseconds</p>
+                        </div>
+                    </li>
+                    <li class="feature-item animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <div>
+                            <h4>Secure & Reliable</h4>
+                            <p>Your links are always safe and accessible</p>
+                        </div>
+                    </li>
+                    <li class="feature-item animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                        <div>
+                            <h4>Analytics</h4>
+                            <p>Track your link performance</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3 class="mb-4">Why Choose Us?</h3>
+                <ul class="feature-list">
+                    <li class="feature-item animate-fadeInUp">
+                        <i class="fas fa-check-circle feature-icon"></i>
+                        <div>
+                            <h4>Easy to Use</h4>
+                            <p>Simple interface for quick URL shortening</p>
+                        </div>
+                    </li>
+                    <li class="feature-item animate-fadeInUp" style="animation-delay: 0.2s;">
+                        <i class="fas fa-globe feature-icon"></i>
+                        <div>
+                            <h4>Global Access</h4>
+                            <p>Access your links from anywhere</p>
+                        </div>
+                    </li>
+                    <li class="feature-item animate-fadeInUp" style="animation-delay: 0.4s;">
+                        <i class="fas fa-clock feature-icon"></i>
+                        <div>
+                            <h4>24/7 Service</h4>
+                            <p>Always available when you need it</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="team-section">
+        <h2 class="text-center mb-5">Our Team</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="team-card animate-fadeInUp">
+                    <img src="https://via.placeholder.com/150" alt="Team Member" class="team-image">
+                    <h4>John Doe</h4>
+                    <p class="text-muted">Founder & CEO</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-card animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <img src="https://via.placeholder.com/150" alt="Team Member" class="team-image">
+                    <h4>Jane Smith</h4>
+                    <p class="text-muted">Lead Developer</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-card animate-fadeInUp" style="animation-delay: 0.4s;">
+                    <img src="https://via.placeholder.com/150" alt="Team Member" class="team-image">
+                    <h4>Mike Johnson</h4>
+                    <p class="text-muted">UX Designer</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

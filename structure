@@ -1,0 +1,11 @@
+url_shortener/
+│
+├── app.py               # Main Flask app
+├── models.py            # Database models
+├── templates/
+│   ├── index.html       # Main page with form
+│   ├── short_url.html   # After generating short URL
+├── static/
+│   ├── style.css        # Optional styling
+│
+└── requirements.txt     # Dependencies

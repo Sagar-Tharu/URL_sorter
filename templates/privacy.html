@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy - URL Shortener{% endblock %}
+
+{% block extra_css %}
+<style>
+    .privacy-section {
+        background: white;
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+
+    .privacy-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .privacy-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .privacy-section h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--primary-color);
+    }
+
+    .privacy-section h3 {
+        color: var(--secondary-color);
+        margin: 2rem 0 1rem;
+    }
+
+    .privacy-section p {
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    .privacy-section ul {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    .privacy-section li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+
+    .highlight-box {
+        background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(44, 62, 80, 0.1));
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+    }
+
+    .last-updated {
+        text-align: center;
+        color: var(--secondary-color);
+        font-style: italic;
+        margin-top: 3rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="privacy-section animate-fadeInUp">
+        <div class="privacy-header">
+            <h1>Privacy Policy</h1>
+            <p class="lead">Your privacy is important to us. Learn how we collect, use, and protect your data.</p>
+        </div>
+
+        <div class="privacy-content">
+            <section class="animate-fadeInUp">
+                <h2>Information We Collect</h2>
+                <p>When you use our URL shortening service, we collect the following information:</p>
+                <ul>
+                    <li>Original URLs that you submit for shortening</li>
+                    <li>Custom aliases you choose (if any)</li>
+                    <li>IP addresses of visitors who click your shortened links</li>
+                    <li>Basic analytics data about link usage</li>
+                </ul>
+            </section>
+
+            <section class="animate-fadeInUp" style="animation-delay: 0.2s;">
+                <h2>How We Use Your Information</h2>
+                <p>We use the collected information to:</p>
+                <ul>
+                    <li>Provide and maintain our URL shortening service</li>
+                    <li>Generate analytics about link usage</li>
+                    <li>Improve our service and user experience</li>
+                    <li>Detect and prevent abuse of our service</li>
+                </ul>
+            </section>
+
+            <section class="animate-fadeInUp" style="animation-delay: 0.3s;">
+                <h2>Data Protection</h2>
+                <p>We implement various security measures to protect your information:</p>
+                <ul>
+                    <li>All data is encrypted in transit and at rest</li>
+                    <li>Regular security audits and updates</li>
+                    <li>Limited access to personal information</li>
+                    <li>Secure data storage practices</li>
+                </ul>
+            </section>
+
+            <div class="highlight-box animate-fadeInUp" style="animation-delay: 0.4s;">
+                <h3>Your Rights</h3>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access your personal data</li>
+                    <li>Request correction of your data</li>
+                    <li>Request deletion of your data</li>
+                    <li>Opt-out of analytics tracking</li>
+                </ul>
+            </div>
+
+            <section class="animate-fadeInUp" style="animation-delay: 0.5s;">
+                <h2>Cookies and Tracking</h2>
+                <p>We use cookies and similar tracking technologies to:</p>
+                <ul>
+                    <li>Remember your preferences</li>
+                    <li>Analyze service usage</li>
+                    <li>Improve our service</li>
+                </ul>
+                <p>You can control cookie settings through your browser preferences.</p>
+            </section>
+
+            <section class="animate-fadeInUp" style="animation-delay: 0.6s;">
+                <h2>Third-Party Services</h2>
+                <p>We may use third-party services for:</p>
+                <ul>
+                    <li>Analytics tracking</li>
+                    <li>Hosting and infrastructure</li>
+                    <li>Security monitoring</li>
+                </ul>
+                <p>These services have their own privacy policies and data handling practices.</p>
+            </section>
+
+            <p class="last-updated">Last updated: March 15, 2024</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}URL Shortener - Home{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(44, 62, 80, 0.1));
+        border-radius: 20px;
+        padding: 3rem 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .url-form {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .feature-card {
+        text-align: center;
+        padding: 2rem;
+        margin: 1rem 0;
+        background: white;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .copy-btn {
+        background: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .copy-btn:hover {
+        background: var(--primary-color);
+    }
+
+    .url-display {
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        word-break: break-all;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hero-section animate-fadeInUp">
+    <h1 class="text-center mb-4">Shorten Your URLs with Ease</h1>
+    <p class="text-center text-muted mb-4">Transform long URLs into short, manageable links in seconds</p>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="url-form">
+                <form method="POST" class="animate-fadeInUp">
+                    <div class="mb-4">
+                        <label for="original_url" class="form-label">Enter your long URL:</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-link"></i></span>
+                            <input type="url" class="form-control" id="original_url" name="original_url" 
+                                   placeholder="https://example.com" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="custom_alias" class="form-label">Custom Alias (Optional):</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                            <input type="text" class="form-control" id="custom_alias" name="custom_alias" 
+                                   maxlength="10" placeholder="Custom Alias (max 10 chars)">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-compress-alt me-2"></i>Shorten URL
+                    </button>
+                </form>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} mt-3 animate-fadeInUp">
+                                <i class="fas fa-info-circle me-2"></i>{{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="feature-card animate-fadeInUp">
+            <i class="fas fa-bolt feature-icon"></i>
+            <h3>Lightning Fast</h3>
+            <p>Generate short URLs instantly with our optimized system</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="feature-card animate-fadeInUp" style="animation-delay: 0.2s;">
+            <i class="fas fa-shield-alt feature-icon"></i>
+            <h3>Secure & Reliable</h3>
+            <p>Your links are safe and always accessible</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="feature-card animate-fadeInUp" style="animation-delay: 0.4s;">
+            <i class="fas fa-chart-line feature-icon"></i>
+            <h3>Track Analytics</h3>
+            <p>Monitor your link performance with detailed stats</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Copy to clipboard functionality
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(function() {
+            const btn = document.querySelector('.copy-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            }, 2000);
+        });
+    }
+
+    // Add hover effect to feature cards
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+{% endblock %}
